@@ -24,6 +24,7 @@
 
 # # The followings are settings for displays of your blog.
  theme_setting:
+theme: jekyll-theme-persephone
 #   # The slides count in the slides layout. Default is 4.
    slides_count: 5
 #   # The ← back URL on the top of your post page. Default is your site's home page.
