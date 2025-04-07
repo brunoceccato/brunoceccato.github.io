@@ -1,8 +1,10 @@
+/* Variáveis de tema */
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
   --link-color: #0077cc;
   --hover-color: #555;
+  --focus-outline: 1px dashed var(--link-color);
 }
 
 body.dark-mode {
@@ -12,6 +14,7 @@ body.dark-mode {
   --hover-color: #bbb;
 }
 
+/* Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,16 +29,18 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-a {
+/* Remoção de foco visual forte */
+a,
+button {
   outline: none;
-  text-decoration: none;
 }
 
-a:focus {
-  outline: 1px solid var(--link-color);
-  outline-offset: 2px;
+a:focus,
+button:focus {
+  outline: var(--focus-outline);
 }
 
+/* Animação de entrada */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
@@ -47,6 +52,7 @@ a:focus {
   }
 }
 
+/* Cabeçalho fixo */
 header {
   position: fixed;
   top: 0;
@@ -79,33 +85,48 @@ header h1 {
   color: var(--text-color);
 }
 
-.theme-toggle {
+/* Botão de tema (interruptor minimalista) */
+.theme-switch {
   position: absolute;
+  top: 1.4rem;
   right: 2rem;
-  top: 1.5rem;
+  width: 36px;
+  height: 20px;
   cursor: pointer;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  padding: 0.4rem;
+}
+
+.switch-track {
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-color);
+  border-radius: 10px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.switch-thumb {
+  width: 14px;
+  height: 14px;
+  background-color: var(--bg-color);
   border-radius: 50%;
-  transition: background-color 0.3s;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.3s ease, background-color 0.3s ease;
 }
 
-.theme-toggle:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+body.dark-mode .switch-thumb {
+  left: 19px;
 }
 
-body.dark-mode .theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
+/* Container principal */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 2rem;
 }
 
+/* Foto de perfil */
 .profile-pic {
   display: block;
   width: 120px;
@@ -116,11 +137,13 @@ body.dark-mode .theme-toggle:hover {
   margin: 2rem auto 1rem;
 }
 
+/* Biografia */
 .bio {
   text-align: justify;
   margin-bottom: 2rem;
 }
 
+/* Links */
 .links {
   text-align: center;
   margin-bottom: 2rem;
@@ -138,12 +161,14 @@ body.dark-mode .theme-toggle:hover {
   color: var(--hover-color);
 }
 
+/* Títulos */
 h2 {
   text-align: center;
   margin-top: 3rem;
   font-size: 1.5rem;
 }
 
+/* Galeria de imagens */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -159,22 +184,7 @@ h2 {
   box-shadow: none;
 }
 
-@media (max-width: 600px) {
-  .subtitle {
-    font-size: 0.9rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .theme-toggle {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.2rem 0.6rem;
-  }
-}
-
+/* Rodapé */
 footer {
   text-align: center;
   padding: 2rem;
@@ -191,4 +201,20 @@ footer {
 
 .footer-link:hover {
   color: var(--hover-color);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .theme-switch {
+    top: 1rem;
+    right: 1rem;
+  }
 }
