@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,7 +29,7 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
-      padding-top: 60px;
+      padding-top: 100px;
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -43,18 +42,28 @@
       border-bottom: 1px solid #ddd;
       padding: 1rem 2rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
       z-index: 1000;
     }
 
     header h1 {
       margin: 0;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      margin-top: 0.2rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-color);
     }
 
     .theme-toggle {
+      position: absolute;
+      right: 2rem;
+      top: 1.2rem;
       cursor: pointer;
       font-size: 0.9rem;
       background: none;
@@ -94,7 +103,7 @@
       margin: 0 1rem;
       color: var(--link-color);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
@@ -105,25 +114,28 @@
     h2 {
       text-align: center;
       margin-top: 3rem;
+      font-size: 1.5rem;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
     .gallery img {
       width: 100%;
       height: auto;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      transition: transform 0.3s ease;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .gallery img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
     footer {
@@ -137,6 +149,7 @@
 <body>
   <header>
     <h1>Bruno Ceccato</h1>
+    <div class="subtitle">Tento colocar espirito nas coisas.</div>
     <button class="theme-toggle" onclick="toggleTheme()">Light/Dark</button>
   </header>
 
@@ -146,7 +159,7 @@
 
     <section class="bio">
       <p>
-        Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.
+        Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiv...
         A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <em>Antropofágicas</em>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <em>Fôlego</em> (2025).
       </p>
     </section>
