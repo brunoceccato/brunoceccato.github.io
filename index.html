@@ -1,57 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bruno Ceccato</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
 </head>
 <body class="fade-in">
-
   <header>
     <div class="header-wrapper">
       <h1>Bruno Ceccato</h1>
       <p class="subtitle">Tento colocar espírito nas coisas.</p>
     </div>
-    <button class="theme-toggle" aria-label="Alternar tema" onclick="toggleTheme()">🌓</button>
+    <button class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')"></button>
   </header>
 
-  <div class="container fade-in">
-    <img src="images/foto_perfil.jpg" alt="Foto de perfil de Bruno Ceccato" class="profile-pic">
+  <main class="container">
+    <img src="images/perfil.jpg" alt="Foto de perfil" class="profile-pic" />
 
-    <p class="bio">
-      Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto Tudo Fica Olhando, Escutando, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública. A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série Antropofágicas, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série Fôlego (2025).
-    </p>
+    <section class="bio">
+      <p>
+        Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <i>Tudo Fica Olhando, Escutando</i>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.
+        A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <i>Antropofágicas</i>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <i>Fôlego</i> (2025).
+      </p>
+    </section>
 
-    <div class="links">
-      <a href="https://www.instagram.com/_brunoceccato" target="_blank" aria-label="Instagram Bruno Ceccato">Instagram</a>
-      <a href="https://linktr.ee/brunoceccato" target="_blank" aria-label="Linktree Bruno Ceccato">Linktree</a>
-    </div>
+    <section class="links">
+      <a href="https://www.instagram.com/_brunoceccato" target="_blank">Instagram</a>
+      <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
+    </section>
 
     <h2>Obras</h2>
-    <div class="gallery">
-      <img src="images/obra1.jpg" alt="Obra 1">
-      <img src="images/obra2.jpg" alt="Obra 2">
-      <img src="images/obra3.jpg" alt="Obra 3">
-      <img src="images/obra4.jpg" alt="Obra 4">
-    </div>
-  </div>
+    <section class="gallery">
+      <img src="images/obra1-baixa.jpg" alt="Obra 1" />
+      <img src="images/obra2-baixa.jpg" alt="Obra 2" />
+      <img src="images/obra3-baixa.jpg" alt="Obra 3" />
+      <img src="images/obra4-baixa.jpg" alt="Obra 4" />
+    </section>
+  </main>
 
   <footer>
-    &copy; <a href="index.html" class="footer-link">Bruno Ceccato</a>
+    <a href="#" class="footer-link">Bruno Ceccato</a>
   </footer>
-
-  <script>
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
-  </script>
 </body>
 </html>
