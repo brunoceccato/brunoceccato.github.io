@@ -23,7 +23,7 @@
 
     header h1,
     header p {
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .profile-pic {
@@ -56,11 +56,21 @@
       text-align: justify;
     }
 
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
     .links a {
-      margin-right: 1rem;
-      color: #585858;
+      margin: 0 1rem;
+      color: #666;
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #555;
     }
 
     .gallery {
@@ -94,7 +104,7 @@
   <header>
     <!-- 🔽 Substitua o link abaixo pelo link da sua foto de perfil -->
     <img src="LINK_DA_SUA_FOTO" alt="Bruno Ceccato" class="profile-pic">
-    <h1>Bruno Ceccato</h1>
+    <h1>bruno ceccato</h1>
     <p></p>
   </header>
 
@@ -106,25 +116,12 @@
       </p>
     </section>
 
-    <style>
-    .links {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .links a {
-      margin: 0 1rem;
-      color: ##585858;
-      text-decoration: none;
-      font-weight: 400;
-    }
-    </style>
     <section class="links">
       <a href="https://www.instagram.com/_brunoceccato" target="_blank">Instagram</a>
       <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
     </section>
 
-    <h2>Obras</h2>
+    <h2>obras</h2>
     <section class="gallery">
       <!-- 🔽 Substitua os links abaixo pelos links das suas imagens do Google Drive -->
       <img src="LINK_DA_IMAGEM_1" alt="Trabalho 1">
