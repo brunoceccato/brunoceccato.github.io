@@ -40,11 +40,17 @@
       width: 100%;
       background-color: var(--bg-color);
       border-bottom: 1px solid #ddd;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       z-index: 1000;
+    }
+
+    .header-wrapper {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
     }
 
     header h1 {
@@ -63,7 +69,7 @@
     .theme-toggle {
       position: absolute;
       right: 2rem;
-      top: 1.2rem;
+      top: 1.5rem;
       cursor: pointer;
       font-size: 0.9rem;
       background: none;
@@ -103,7 +109,7 @@
       margin: 0 1rem;
       color: var(--link-color);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
@@ -119,23 +125,18 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
       margin-top: 2rem;
     }
 
     .gallery img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 0;
       border: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      box-shadow: none;
+      transition: none;
     }
 
     footer {
@@ -148,8 +149,10 @@
 </head>
 <body>
   <header>
-    <h1>Bruno Ceccato</h1>
-    <div class="subtitle">Tento colocar espirito nas coisas.</div>
+    <div class="header-wrapper">
+      <h1>Bruno Ceccato</h1>
+      <div class="subtitle">Tento colocar espírito nas coisas.</div>
+    </div>
     <button class="theme-toggle" onclick="toggleTheme()">Light/Dark</button>
   </header>
 
@@ -169,12 +172,14 @@
       <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
     </section>
 
-    <h2>Trabalhos</h2>
+    <h2>Obras</h2>
     <section class="gallery">
-      <!-- 🔽 Substitua pelos seus arquivos de imagem dentro da pasta /images -->
-      <img src="images/trabalho1.jpg" alt="Trabalho 1" />
-      <img src="images/trabalho2.jpg" alt="Trabalho 2" />
-      <img src="images/trabalho3.jpg" alt="Trabalho 3" />
+      <!-- 🔽 Substitua pelas suas imagens depois -->
+      <img src="images/obra1.jpg" alt="Obra 1" />
+      <img src="images/obra2.jpg" alt="Obra 2" />
+      <img src="images/obra3.jpg" alt="Obra 3" />
+      <img src="images/obra4.jpg" alt="Obra 4" />
+      <img src="images/obra5.jpg" alt="Obra 5" />
     </section>
   </div>
 
