@@ -6,7 +6,7 @@
   <title>Bruno Ceccato</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/perfil.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet" />
 </head>
 <body class="fade-in">
   <header>
@@ -22,18 +22,34 @@
   </header>
 
   <main class="container">
-    <!-- conteúdo omitido para foco no dark mode -->
+    <img src="images/perfil.png" alt="Foto de perfil" class="profile-pic" />
+    <div class="bio">
+      <p>Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.</p>
+      <p>A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <em>Antropofágicas</em>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <em>Fôlego</em> (2025).</p>
+    </div>
+
+    <div class="links">
+      <a href="https://www.instagram.com/_brunoceccato" target="_blank">Instagram</a>
+      <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
+    </div>
+
+    <h2>Obras</h2>
+    <div class="gallery">
+      <img src="images/obra1.jpg" alt="Obra 1" />
+      <img src="images/obra2.jpg" alt="Obra 2" />
+      <img src="images/obra3.jpg" alt="Obra 3" />
+      <!-- Adicione ou substitua imagens nesta pasta -->
+    </div>
   </main>
 
   <footer>
-    <p>&copy; <a class="footer-link" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Bruno Ceccato 2025</a></p>
+    <p>&copy; <a class="footer-link" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Bruno Ceccato</a></p>
   </footer>
 
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
 
-    // Aplica tema salvo
     if (localStorage.getItem("theme") === "dark") {
       body.classList.add("dark-mode");
     }
