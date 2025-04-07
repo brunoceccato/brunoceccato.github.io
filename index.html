@@ -5,79 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bruno Ceccato</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="icon" type="image/png" href="images/perfil.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fade-in">
   <header>
     <div class="header-wrapper">
       <h1>Bruno Ceccato</h1>
       <p class="subtitle">Tento colocar espírito nas coisas.</p>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-      <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-      </svg>
-    </button>
+    <div class="theme-switch" id="theme-toggle" title="Alternar tema">
+      <div class="switch-track">
+        <div class="switch-thumb"></div>
+      </div>
+    </div>
   </header>
 
-  <main class="container fade-in">
-    <img src="images/perfil.jpg" alt="Foto de perfil" class="profile-pic" />
-    
-    <section class="bio">
-      <p>
-        Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.
-      </p>
-      <p>
-        A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <em>Antropofágicas</em>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <em>Fôlego</em> (2025).
-      </p>
-    </section>
+  <main class="container">
+    <img src="images/perfil.png" alt="Foto de perfil" class="profile-pic" />
 
-    <section class="links">
+    <div class="bio">
+      <p>Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.</p>
+      <p>A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <em>Antropofágicas</em>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <em>Fôlego</em> (2025).</p>
+    </div>
+
+    <div class="links">
       <a href="https://www.instagram.com/_brunoceccato" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://linktr.ee/brunoceccato" target="_blank" rel="noopener noreferrer">Linktree</a>
-    </section>
+    </div>
 
     <h2>Obras</h2>
-    <section class="gallery">
+    <div class="gallery">
       <img src="images/obra1.jpg" alt="Obra 1" />
       <img src="images/obra2.jpg" alt="Obra 2" />
       <img src="images/obra3.jpg" alt="Obra 3" />
       <img src="images/obra4.jpg" alt="Obra 4" />
-      <!-- Substitua os arquivos depois com seus próprios nomes -->
-    </section>
+      <!-- Adicione ou substitua as imagens conforme desejar -->
+    </div>
   </main>
 
   <footer>
-    <a class="footer-link" href="#">© Bruno Ceccato</a>
+    <p>&copy; <a class="footer-link" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Bruno Ceccato</a></p>
   </footer>
 
   <script>
-    const toggle = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
+    const toggle = document.getElementById("theme-toggle");
     const body = document.body;
 
-    function updateIcon() {
-      icon.innerHTML = body.classList.contains('dark-mode')
-        ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'
-        : '<circle cx="12" cy="12" r="5"></circle>';
+    // Aplica tema salvo
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark-mode");
     }
 
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      updateIcon();
-      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const mode = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", mode);
     });
-
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark-mode');
-    }
-
-    updateIcon();
   </script>
 </body>
 </html>
