@@ -33,10 +33,9 @@ a {
   text-decoration: none;
 }
 
-a:focus,
-button:focus {
-  outline: 1px dashed var(--hover-color);
-  outline-offset: 2px;
+a:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--link-color);
 }
 
 .fade-in {
