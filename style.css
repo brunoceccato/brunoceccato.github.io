@@ -3,16 +3,16 @@
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
-  --link-color: #222222;
-  --hover-color: #666666;
+  --link-color: #0077cc;
+  --hover-color: #555;
   --focus-outline: 1px dashed var(--link-color);
 }
 
 body.dark-mode {
   --bg-color: #1a1a1a;
   --text-color: #dddddd;
-  --link-color: #dddddd;
-  --hover-color: #bbbbbb;
+  --link-color: #4faaff;
+  --hover-color: #bbb;
   --focus-outline: 1px dashed var(--link-color);
 }
 
@@ -31,6 +31,7 @@ body {
 }
 
 a {
+  outline: none;
   color: var(--link-color);
   text-decoration: none;
   font-weight: 500;
@@ -73,6 +74,7 @@ header {
   max-width: 900px;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -89,17 +91,17 @@ header h1 {
 
 .theme-switch {
   position: absolute;
-  top: 1.5rem;
+  top: 1.2rem;
   right: 2rem;
-  cursor: pointer;
   width: 40px;
   height: 20px;
-  background-color: transparent;
   border: 1px solid var(--text-color);
   border-radius: 10px;
+  background-color: transparent;
   display: flex;
   align-items: center;
   padding: 2px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -148,10 +150,6 @@ body.dark-mode .theme-switch::before {
   transition: color 0.3s ease;
 }
 
-.links a:hover {
-  color: var(--hover-color);
-}
-
 h2 {
   text-align: center;
   margin-top: 3rem;
@@ -171,52 +169,7 @@ h2 {
   border-radius: 0;
   border: none;
   box-shadow: none;
-}
-
-/* Responsividade */
-
-@media (max-width: 600px) {
-  body {
-    padding-top: 80px;
-  }
-
-  header {
-    padding: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-wrapper {
-    text-align: left;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-    margin-top: 0.4rem;
-  }
-
-  .theme-switch {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .links a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.8rem;
-  }
+  cursor: pointer;
 }
 
 footer {
@@ -237,6 +190,28 @@ footer {
   color: var(--hover-color);
 }
 
-.footer-link:focus {
-  outline: var(--focus-outline);
+/* Responsivo */
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .theme-switch {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    width: 36px;
+    height: 18px;
+    padding: 1px;
+  }
+
+  .theme-switch::before {
+    width: 12px;
+    height: 12px;
+  }
 }
