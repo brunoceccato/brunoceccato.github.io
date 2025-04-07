@@ -1,59 +1,88 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bruno Ceccato</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #222222;
+      --link-color: #0077cc;
+      --hover-color: #555;
+    }
+
+    body.dark-mode {
+      --bg-color: #1a1a1a;
+      --text-color: #dddddd;
+      --link-color: #4faaff;
+      --hover-color: #bbb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #fff;
-      color: #222;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      padding-top: 60px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
-      padding: 2rem;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-
-    header h1,
-    header p {
-      font-weight: 900;
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      margin-bottom: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0 0.2rem;
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
     }
 
-    header p {
-      font-size: 1rem;
-      color: #666;
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 0.9rem;
+      background: none;
+      border: 1px solid var(--text-color);
+      color: var(--text-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
     }
 
-    main {
+    .container {
       max-width: 900px;
       margin: auto;
       padding: 2rem;
     }
 
+    .profile-pic {
+      display: block;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      margin: 2rem auto 1rem;
+    }
+
     .bio {
-      margin-bottom: 2rem;
       text-align: justify;
+      margin-bottom: 2rem;
     }
 
     .links {
@@ -63,29 +92,34 @@
 
     .links a {
       margin: 0 1rem;
-      color: #0077cc;
+      color: var(--link-color);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
     .links a:hover {
-      color: #555;
+      color: var(--hover-color);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 3rem;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .gallery img {
       width: 100%;
       height: auto;
       border-radius: 6px;
-      transition: transform 0.2s ease;
       border: 1px solid #ddd;
+      transition: transform 0.3s ease;
     }
 
     .gallery img:hover {
@@ -96,19 +130,20 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #888;
+      color: var(--hover-color);
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- 🔽 Substitua o link abaixo pelo link da sua foto de perfil -->
-    <img src="LINK_DA_SUA_FOTO" alt="Bruno Ceccato" class="profile-pic">
     <h1>Bruno Ceccato</h1>
-    <p>Tento colocar espírito nas coisas.</p>
+    <button class="theme-toggle" onclick="toggleTheme()">Light/Dark</button>
   </header>
 
-  <main>
+  <div class="container">
+    <!-- 🔽 Substitua pelo link da sua imagem de perfil -->
+    <img src="images/foto_perfil.jpg" alt="Bruno Ceccato" class="profile-pic" />
+
     <section class="bio">
       <p>
         Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.
@@ -121,17 +156,23 @@
       <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
     </section>
 
-    <h2>Obras</h2>
+    <h2>Trabalhos</h2>
     <section class="gallery">
-      <!-- 🔽 Substitua os links abaixo pelos links das suas imagens do Google Drive -->
-      <img src="LINK_DA_IMAGEM_1" alt="Trabalho 1">
-      <img src="LINK_DA_IMAGEM_2" alt="Trabalho 2">
-      <img src="LINK_DA_IMAGEM_3" alt="Trabalho 3">
+      <!-- 🔽 Substitua pelos seus arquivos de imagem dentro da pasta /images -->
+      <img src="images/trabalho1.jpg" alt="Trabalho 1" />
+      <img src="images/trabalho2.jpg" alt="Trabalho 2" />
+      <img src="images/trabalho3.jpg" alt="Trabalho 3" />
     </section>
-  </main>
+  </div>
 
   <footer>
     &copy; 2025 Bruno Ceccato
   </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
