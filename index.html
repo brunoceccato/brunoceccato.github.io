@@ -5,23 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bruno Ceccato</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap"
+    rel="stylesheet"
+  />
 </head>
-<body class="fade-in">
-
+<body>
   <header>
     <div class="header-wrapper">
       <h1>Bruno Ceccato</h1>
       <p class="subtitle">Tento colocar espírito nas coisas.</p>
     </div>
-    <button class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')">🌓</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+      <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+      </svg>
+    </button>
   </header>
 
-  <main class="container">
-
-    <img class="profile-pic" src="images/perfil.jpg" alt="Foto de perfil de Bruno Ceccato" />
-
+  <main class="container fade-in">
+    <img src="images/perfil.jpg" alt="Foto de perfil" class="profile-pic" />
+    
     <section class="bio">
       <p>
         Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública.
@@ -31,10 +37,10 @@
       </p>
     </section>
 
-    <div class="links">
-      <a href="https://www.instagram.com/_brunoceccato" target="_blank">Instagram</a>
-      <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
-    </div>
+    <section class="links">
+      <a href="https://www.instagram.com/_brunoceccato" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://linktr.ee/brunoceccato" target="_blank" rel="noopener noreferrer">Linktree</a>
+    </section>
 
     <h2>Obras</h2>
     <section class="gallery">
@@ -42,13 +48,36 @@
       <img src="images/obra2.jpg" alt="Obra 2" />
       <img src="images/obra3.jpg" alt="Obra 3" />
       <img src="images/obra4.jpg" alt="Obra 4" />
-      <!-- Substitua os nomes dos arquivos pelas suas imagens depois -->
+      <!-- Substitua os arquivos depois com seus próprios nomes -->
     </section>
   </main>
 
   <footer>
-    <a href="#" class="footer-link">© Bruno Ceccato, 2025</a>
+    <a class="footer-link" href="#">© Bruno Ceccato</a>
   </footer>
 
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    function updateIcon() {
+      icon.innerHTML = body.classList.contains('dark-mode')
+        ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'
+        : '<circle cx="12" cy="12" r="5"></circle>';
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      updateIcon();
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    updateIcon();
+  </script>
 </body>
 </html>
