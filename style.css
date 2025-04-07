@@ -3,15 +3,15 @@
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
-  --link-color: #0077cc;
-  --hover-color: #555;
+  --link-color: #555555;
+  --hover-color: #999999;
 }
 
 body.dark-mode {
   --bg-color: #1a1a1a;
   --text-color: #dddddd;
-  --link-color: #4faaff;
-  --hover-color: #bbb;
+  --link-color: #aaaaaa;
+  --hover-color: #bbbbbb;
 }
 
 * {
@@ -31,22 +31,12 @@ body {
 a {
   outline: none;
   text-decoration: none;
-  color: var(--link-color);
-  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: var(--hover-color);
-}
-
-/* Foco elegante e acessível para elementos interativos */
 a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--link-color);
-  border-radius: 2px;
+button:focus {
+  outline: 1px dashed var(--hover-color);
+  outline-offset: 2px;
 }
 
 .fade-in {
@@ -92,23 +82,23 @@ header h1 {
   color: var(--text-color);
 }
 
-/* Botão minimalista de dark mode */
 .theme-toggle {
   position: absolute;
-  top: 1.5rem;
   right: 2rem;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid var(--text-color);
-  background-color: var(--text-color);
+  top: 1.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 1rem;
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-body.dark-mode .theme-toggle {
-  background-color: var(--bg-color);
-  border-color: var(--text-color);
+.theme-toggle:hover {
+  color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 
 .container {
@@ -182,8 +172,7 @@ h2 {
   .theme-toggle {
     top: 1rem;
     right: 1rem;
-    width: 18px;
-    height: 18px;
+    padding: 0.2rem 0.6rem;
   }
 }
 
