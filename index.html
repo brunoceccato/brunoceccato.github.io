@@ -1,195 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bruno Ceccato</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #222222;
-      --link-color: #0077cc;
-      --hover-color: #555;
-    }
-
-    body.dark-mode {
-      --bg-color: #1a1a1a;
-      --text-color: #dddddd;
-      --link-color: #4faaff;
-      --hover-color: #bbb;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding-top: 100px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--bg-color);
-      border-bottom: 1px solid #ddd;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .header-wrapper {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-
-    .subtitle {
-      margin-top: 0.2rem;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--text-color);
-    }
-
-    .theme-toggle {
-      position: absolute;
-      right: 2rem;
-      top: 1.5rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      background: none;
-      border: 1px solid var(--text-color);
-      color: var(--text-color);
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .profile-pic {
-      display: block;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      margin: 2rem auto 1rem;
-    }
-
-    .bio {
-      text-align: justify;
-      margin-bottom: 2rem;
-    }
-
-    .links {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .links a {
-      margin: 0 1rem;
-      color: var(--link-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .links a:hover {
-      color: var(--hover-color);
-    }
-
-    h2 {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 1.5rem;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-      transition: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: var(--hover-color);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fade-in">
+
   <header>
     <div class="header-wrapper">
       <h1>Bruno Ceccato</h1>
-      <div class="subtitle">Tento colocar espírito nas coisas.</div>
+      <p class="subtitle">Tento colocar espírito nas coisas.</p>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()">Light/Dark</button>
+    <button class="theme-toggle" aria-label="Alternar tema" onclick="toggleTheme()">🌓</button>
   </header>
 
-  <div class="container">
-    <!-- 🔽 Substitua pelo link da sua imagem de perfil -->
-    <img src="images/foto_perfil.jpg" alt="Bruno Ceccato" class="profile-pic" />
+  <div class="container fade-in">
+    <img src="images/foto_perfil.jpg" alt="Foto de perfil de Bruno Ceccato" class="profile-pic">
 
-    <section class="bio">
-      <p>
-        Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto <em>Tudo Fica Olhando, Escutando</em>, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiv...
-        A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série <em>Antropofágicas</em>, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série <em>Fôlego</em> (2025).
-      </p>
-    </section>
+    <p class="bio">
+      Bruno Ceccato é artista multidisciplinar atuante no interior de São Paulo, formado em Arquitetura (2010). Em 2015, aprofundou-se no estudo da cerâmica e começou a desenvolver suas primeiras obras autorais. Em 2018, foi contemplado pelo ProAC com o projeto Tudo Fica Olhando, Escutando, que expandiu sua pesquisa em diálogo com o MAHKU (Movimento dos Artistas Huni Kuin), no Acre. O projeto resultou em uma exposição individual homônima, acompanhada por oficinas de desenho e percepção coletiva com alunos da rede pública. A partir de 2020, passou a explorar materiais mais sustentáveis para suas criações, o que levou ao desenvolvimento da série Antropofágicas, composta por peças feitas com fibra de celulose reciclada e biopolímero vegetal. Desde então, tem se dedicado à pesquisa e aprimoramento desse material, ampliando suas investigações artísticas. Seu trabalho mais recente é a série Fôlego (2025).
+    </p>
 
-    <section class="links">
-      <a href="https://www.instagram.com/_brunoceccato" target="_blank">Instagram</a>
-      <a href="https://linktr.ee/brunoceccato" target="_blank">Linktree</a>
-    </section>
+    <div class="links">
+      <a href="https://www.instagram.com/_brunoceccato" target="_blank" aria-label="Instagram Bruno Ceccato">Instagram</a>
+      <a href="https://linktr.ee/brunoceccato" target="_blank" aria-label="Linktree Bruno Ceccato">Linktree</a>
+    </div>
 
     <h2>Obras</h2>
-    <section class="gallery">
-      <!-- 🔽 Substitua pelas suas imagens depois -->
-      <img src="images/obra1.jpg" alt="Obra 1" />
-      <img src="images/obra2.jpg" alt="Obra 2" />
-      <img src="images/obra3.jpg" alt="Obra 3" />
-      <img src="images/obra4.jpg" alt="Obra 4" />
-      <img src="images/obra5.jpg" alt="Obra 5" />
-    </section>
+    <div class="gallery">
+      <img src="images/obra1.jpg" alt="Obra 1">
+      <img src="images/obra2.jpg" alt="Obra 2">
+      <img src="images/obra3.jpg" alt="Obra 3">
+      <img src="images/obra4.jpg" alt="Obra 4">
+    </div>
   </div>
 
   <footer>
-    &copy; 2025 Bruno Ceccato
+    &copy; Bruno Ceccato
   </footer>
 
   <script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
     function toggleTheme() {
       document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     }
   </script>
 </body>

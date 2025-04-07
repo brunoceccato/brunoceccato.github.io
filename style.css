@@ -1,0 +1,175 @@
+/* Fonte Montserrat importada no HTML */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --link-color: #0077cc;
+  --hover-color: #555;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #dddddd;
+  --link-color: #4faaff;
+  --hover-color: #bbb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding-top: 100px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  outline: none;
+}
+
+a:focus {
+  outline: 2px dashed var(--link-color);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #ddd;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header-wrapper {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.profile-pic {
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin: 2rem auto 1rem;
+}
+
+.bio {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+.links {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.links a {
+  margin: 0 1rem;
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--hover-color);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: var(--hover-color);
+}
