@@ -196,19 +196,17 @@ h2 {
   border-radius: 4px;
 }
 
-.modal-caption {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0 1rem;
-
-  /* Remoção completa de bordas e efeitos */
+.modal-caption,
+.modal-caption * {
+  margin: 0;
+  padding: 0;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
   background: transparent !important;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--text-color);
 }
 
 /* Botões do modal */
