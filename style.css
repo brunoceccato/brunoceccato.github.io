@@ -283,8 +283,6 @@ footer {
   }
 
   .gallery img {
-    width: calc(50% - 0.5rem);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 4 / 3;
   }
-}
