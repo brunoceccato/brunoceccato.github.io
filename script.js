@@ -1,20 +1,15 @@
-// Tema escuro: alternar e salvar
+// Dark mode: Alternar tema e salvar preferência
 const toggle = document.getElementById('themeSwitch');
-
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
-
-// Acessibilidade com teclado
 toggle.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
     toggle.click();
   }
 });
-
-// Carregar tema salvo
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
@@ -22,66 +17,54 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ------------------
-// Modal da galeria
-// ------------------
+// Modal da Galeria
 const modal = document.getElementById('image-modal');
 const modalImg = document.getElementById('modal-img');
 const modalCaption = document.getElementById('modal-caption');
-const modalClose = document.getElementById('modal-close');
-const modalNext = document.getElementById('modal-next');
-const modalPrev = document.getElementById('modal-prev');
-const images = document.querySelectorAll('.gallery img');
-
+const closeModal = document.getElementById('modal-close');
+const nextBtn = document.getElementById('modal-next');
+const prevBtn = document.getElementById('modal-prev');
+const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
 let currentIndex = 0;
 
-images.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    modal.style.display = 'flex';
-    modalImg.src = img.dataset.full;
-    modalCaption.textContent = img.alt;
-    currentIndex = index;
-  });
-});
-
-function openModal() {
+function openModal(index) {
+  currentIndex = index;
+  const img = galleryImages[currentIndex];
+  modalImg.src = img.dataset.full;
+  modalCaption.textContent = img.alt;
   modal.style.display = 'flex';
-  updateModalContent();
 }
 
-function updateModalContent() {
-  const img = images[currentIndex];
-  modalImg.src = img.dataset.full || img.src;
-  captionText.textContent = img.alt;
-}
-
-// Fechar modal
-closeBtn.addEventListener('click', () => {
+function closeModalFunc() {
   modal.style.display = 'none';
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  openModal(currentIndex);
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  openModal(currentIndex);
+}
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => openModal(index));
 });
 
-// Navegação
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateModalContent();
-});
+closeModal.addEventListener('click', closeModalFunc);
+nextBtn.addEventListener('click', showNext);
+prevBtn.addEventListener('click', showPrev);
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateModalContent();
-});
-
-// Fechar com ESC / Navegar com teclado
 document.addEventListener('keydown', (e) => {
   if (modal.style.display === 'flex') {
     if (e.key === 'Escape') {
-      modal.style.display = 'none';
+      closeModalFunc();
     } else if (e.key === 'ArrowRight') {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateModalContent();
+      showNext();
     } else if (e.key === 'ArrowLeft') {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateModalContent();
+      showPrev();
     }
   }
 });
