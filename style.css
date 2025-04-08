@@ -206,8 +206,6 @@ h2 {
   font-size: 0.8rem;
   color: var(--text-color);
   padding: 0 1rem;
-
-  /* Garantindo que não haja borda ou contorno */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
