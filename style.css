@@ -215,13 +215,16 @@ h2 {
 .modal-close,
 .modal-prev,
 .modal-next {
-  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem; /* ou ajuste como preferir */
+  font-weight: 400;  /* peso leve */
   color: #fff;
-  font-size: 2rem;
+  position: absolute;
   cursor: pointer;
   user-select: none;
   padding: 0.5rem;
   transition: opacity 0.2s ease;
+  opacity: 0.6;
 }
 
 .modal-close {
@@ -244,7 +247,7 @@ h2 {
 .modal-close:hover,
 .modal-prev:hover,
 .modal-next:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 /* Footer */
