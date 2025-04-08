@@ -150,6 +150,13 @@ h1 {
   transform-origin: left;
 }
 
+/* Título da galeria */
+h2 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
 /* Galeria */
 .gallery {
   display: flex;
@@ -196,13 +203,14 @@ h1 {
 .modal-caption {
   margin-top: 1rem;
   text-align: center;
-  font-size: 0.8rem; 
+  font-size: 0.75rem;
   color: var(--text-color);
   padding: 0 1rem;
-  border: none; 
+  border: none;
   outline: none;
 }
 
+/* Controles do Modal */
 .modal-close,
 .modal-prev,
 .modal-next {
