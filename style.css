@@ -203,12 +203,15 @@ h2 {
 .modal-caption {
   margin-top: 1rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-color);
   padding: 0 1rem;
+
+  /* Garantindo que não haja borda ou contorno */
   border: none !important;
   outline: none !important;
-  background: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 /* Controles do Modal */
