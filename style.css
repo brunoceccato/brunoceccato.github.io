@@ -19,44 +19,34 @@ body {
   color: #f1f1f1;
 }
 
-/* Remover outline padrão e ajustar foco */
-a,
-button,
-.theme-switch {
+a, button, .theme-switch {
   outline: none;
 }
 
-a:focus,
-button:focus,
-.theme-switch:focus {
+a:focus, button:focus, .theme-switch:focus {
   outline: 1px solid currentColor;
   outline-offset: 3px;
 }
 
-/* Animação ao carregar */
 .fade-in {
   animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Header */
 header {
-  position: relative;
-  padding: 1rem;
   text-align: center;
+  padding: 1rem;
 }
 
 .header-wrapper {
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
 }
 
 h1 {
@@ -101,7 +91,7 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* Container principal */
+/* Container */
 .container {
   max-width: 900px;
   margin: 2rem auto;
@@ -149,13 +139,12 @@ h1 {
   transform-origin: left;
 }
 
-/* Título da galeria */
+/* Galeria */
 h2 {
   text-align: center;
   margin-top: 2rem;
 }
 
-/* Galeria */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -178,16 +167,18 @@ h2 {
 }
 
 /* Modal */
-.modal-caption {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-color);
-  padding: 0 1rem;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .modal-content {
@@ -200,33 +191,24 @@ h2 {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--text-color);
+  color: #fff;
   padding: 0 1rem;
   border: none !important;
   outline: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
 }
 
-/* Botões do modal */
+/* Controles */
 .modal-close,
 .modal-prev,
 .modal-next {
   position: absolute;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   cursor: pointer;
   user-select: none;
-  padding: 0.75rem;
+  padding: 0.5rem;
   transition: opacity 0.2s ease;
-  font-weight: 300;
-  opacity: 0.8;
-}
-
-.modal-close:hover,
-.modal-prev:hover,
-.modal-next:hover {
-  opacity: 1;
+  font-weight: 200;
 }
 
 .modal-close {
@@ -235,18 +217,22 @@ h2 {
   font-size: 3rem;
 }
 
-.modal-prev,
-.modal-next {
+.modal-prev {
   top: 50%;
+  left: 1rem;
   transform: translateY(-50%);
 }
 
-.modal-prev {
-  left: 1rem;
+.modal-next {
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }
 
-.modal-next {
-  right: 1rem;
+.modal-close:hover,
+.modal-prev:hover,
+.modal-next:hover {
+  opacity: 0.7;
 }
 
 /* Footer */
