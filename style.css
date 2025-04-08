@@ -19,28 +19,39 @@ body {
   color: #f1f1f1;
 }
 
-a, button, .theme-switch {
+/* Remover outline padrão e ajustar foco */
+a,
+button,
+.theme-switch {
   outline: none;
 }
 
-a:focus, button:focus, .theme-switch:focus {
+a:focus,
+button:focus,
+.theme-switch:focus {
   outline: 1px solid currentColor;
   outline-offset: 3px;
 }
 
+/* Animação ao carregar */
 .fade-in {
   animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Header */
 header {
-  text-align: center;
+  position: relative;
   padding: 1rem;
+  text-align: center;
 }
 
 .header-wrapper {
@@ -83,7 +94,7 @@ h1 {
 }
 
 .theme-switch::before {
-  content: '';
+  content: "";
   width: 14px;
   height: 14px;
   background-color: currentColor;
@@ -91,7 +102,7 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* Container */
+/* Container principal */
 .container {
   max-width: 900px;
   margin: 2rem auto;
@@ -139,12 +150,15 @@ h1 {
   transform-origin: left;
 }
 
-/* Galeria */
+/* Título da galeria */
 h2 {
   text-align: center;
   margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
+/* Galeria */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -191,13 +205,15 @@ h2 {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.8rem;
-  color: #fff;
+  color: var(--text-color);
   padding: 0 1rem;
   border: none !important;
   outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
-/* Controles */
+/* Controles do Modal */
 .modal-close,
 .modal-prev,
 .modal-next {
@@ -206,9 +222,10 @@ h2 {
   font-size: 2.5rem;
   cursor: pointer;
   user-select: none;
-  padding: 0.5rem;
+  padding: 0.75rem;
   transition: opacity 0.2s ease;
   font-weight: 200;
+  opacity: 0.8;
 }
 
 .modal-close {
@@ -217,16 +234,18 @@ h2 {
   font-size: 3rem;
 }
 
-.modal-prev {
+.modal-prev,
+.modal-next {
   top: 50%;
-  left: 1rem;
   transform: translateY(-50%);
 }
 
+.modal-prev {
+  left: 1rem;
+}
+
 .modal-next {
-  top: 50%;
   right: 1rem;
-  transform: translateY(-50%);
 }
 
 .modal-close:hover,
@@ -246,6 +265,12 @@ footer {
 .footer-link {
   color: inherit;
   text-decoration: none;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--hover-color);
 }
 
 /* Responsivo */
