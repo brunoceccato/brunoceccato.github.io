@@ -33,21 +33,44 @@
       <a href="https://linktr.ee/brunoceccato" target="_blank" rel="noopener noreferrer">Linktree</a>
     </div>
 
+    <div class="container">
     <h2>Obras</h2>
     <div class="gallery">
-      <img src="images/obra1_thumb.jpg" alt="Obra 1" />
-      <img src="images/obra2_thumb.jpg" alt="Obra 2" />
-      <img src="images/obra3_thumb.jpg" alt="Obra 3" />
-      <img src="images/obra4_thumb.jpg" alt="Obra 4" />
+      <img src="images/obra1-thumb.jpg" data-full="images/obra1.jpg" alt="Série Fôlego – 2025" />
+      <img src="images/obra2-thumb.jpg" data-full="images/obra2.jpg" alt="Série Antropofágicas – 2022" />
+      <img src="images/obra3-thumb.jpg" data-full="images/obra3.jpg" alt="Tudo Fica Olhando, Escutando – 2018" />
       <!-- Substitua pelos seus arquivos -->
     </div>
-  </main>
+  </main> 
 
   <footer>
     <a href="#" class="footer-link">&copy; Bruno Ceccato 2025</a>
   </footer>
 
+  <!-- Modal da Galeria -->
+  <div class="modal" id="image-modal">
+    <span class="modal-close" id="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img" alt="">
+    <div class="modal-caption" id="modal-caption"></div>
+    <span class="modal-prev" id="modal-prev">&#10094;</span>
+    <span class="modal-next" id="modal-next">&#10095;</span>
+  </div>
+
+  <script src="script.js"></script>
+  
   <script>
+     function openModal(imageSrc) {
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      modalImage.src = imageSrc;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
     const toggle = document.getElementById('themeSwitch');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
