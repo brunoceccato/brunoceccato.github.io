@@ -168,8 +168,9 @@ h2 {
 }
 
 .gallery img {
-  max-width: 100%;
-  height: auto;
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
   cursor: pointer;
   border: 1px solid #ccc;
   border-radius: 4px;
