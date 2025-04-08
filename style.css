@@ -206,8 +206,9 @@ h2 {
   font-size: 0.75rem;
   color: var(--text-color);
   padding: 0 1rem;
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
+  background: none !important;
 }
 
 /* Controles do Modal */
