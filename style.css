@@ -169,7 +169,7 @@ h2 {
 
 .gallery img {
   width: 220px;
-  height: 160px;
+  height: 220px;
   object-fit: cover;
   cursor: pointer;
   border: none;
