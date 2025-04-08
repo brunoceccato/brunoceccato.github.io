@@ -1,84 +1,60 @@
-// --- DARK MODE ---
+// Dark mode
 const toggle = document.getElementById('themeSwitch');
-
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
-
-// Acessibilidade com teclado
-toggle.addEventListener('keydown', (e) => {
+toggle.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault();
     toggle.click();
   }
 });
-
-// Carregar tema salvo
 window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
+  if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
   }
 });
 
-// --- MODAL DE IMAGENS ---
+// Modal
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
 const modalCaption = document.getElementById("modal-caption");
-const closeBtn = document.getElementById("modal-close");
-const nextBtn = document.getElementById("modal-next");
+const closeModal = document.getElementById("modal-close");
 const prevBtn = document.getElementById("modal-prev");
-const galleryImages = document.querySelectorAll(".gallery img");
-
+const nextBtn = document.getElementById("modal-next");
+const images = document.querySelectorAll(".gallery img");
 let currentIndex = 0;
 
-// Abrir modal
-galleryImages.forEach((img, index) => {
-  img.addEventListener("click", () => {
-    currentIndex = index;
-    openModal(img);
-  });
-});
-
-function openModal(img) {
+function openModal(index) {
+  const img = images[index];
   modal.style.display = "block";
   modalImg.src = img.getAttribute("data-full");
   modalCaption.textContent = img.alt;
+  currentIndex = index;
 }
 
-// Fechar modal
-closeBtn.addEventListener("click", () => {
+images.forEach((img, index) => {
+  img.addEventListener("click", () => openModal(index));
+});
+
+function closeModalFunc() {
   modal.style.display = "none";
-});
+}
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+function showNext(n) {
+  currentIndex = (currentIndex + n + images.length) % images.length;
+  openModal(currentIndex);
+}
 
-// Navegar
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  openModal(galleryImages[currentIndex]);
-});
+closeModal.onclick = closeModalFunc;
+nextBtn.onclick = () => showNext(1);
+prevBtn.onclick = () => showNext(-1);
 
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  openModal(galleryImages[currentIndex]);
-});
-
-// Teclado
-window.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", e => {
   if (modal.style.display === "block") {
-    if (e.key === "ArrowRight") {
-      nextBtn.click();
-    } else if (e.key === "ArrowLeft") {
-      prevBtn.click();
-    } else if (e.key === "Escape") {
-      closeBtn.click();
-    }
+    if (e.key === "Escape") closeModalFunc();
+    if (e.key === "ArrowRight") showNext(1);
+    if (e.key === "ArrowLeft") showNext(-1);
   }
 });
-
