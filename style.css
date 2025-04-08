@@ -194,9 +194,13 @@ h1 {
 }
 
 .modal-caption {
-  color: #fff;
   margin-top: 1rem;
   text-align: center;
+  font-size: 0.8rem; 
+  color: var(--text-color);
+  padding: 0 1rem;
+  border: none; 
+  outline: none;
 }
 
 .modal-close,
