@@ -1,11 +1,9 @@
-/* Fonte Montserrat importada no HTML */
-
+/* Variáveis */
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
   --link-color: #0077cc;
   --hover-color: #555;
-  --focus-outline: 1px dashed var(--link-color);
 }
 
 body.dark-mode {
@@ -13,9 +11,9 @@ body.dark-mode {
   --text-color: #dddddd;
   --link-color: #4faaff;
   --hover-color: #bbb;
-  --focus-outline: 1px dashed var(--link-color);
 }
 
+/* Reset e Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,9 +40,10 @@ a:hover {
 }
 
 a:focus {
-  outline: var(--focus-outline);
+  outline: 1px dashed var(--link-color);
 }
 
+/* Fade-in */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
@@ -56,6 +55,7 @@ a:focus {
   }
 }
 
+/* Header */
 header {
   position: fixed;
   top: 0;
@@ -74,7 +74,6 @@ header {
   max-width: 900px;
   width: 100%;
   text-align: center;
-  position: relative;
 }
 
 header h1 {
@@ -89,42 +88,43 @@ header h1 {
   color: var(--text-color);
 }
 
+/* Botão minimalista de tema */
 .theme-switch {
   position: absolute;
-  top: 1.2rem;
   right: 2rem;
+  top: 1.4rem;
   width: 40px;
-  height: 20px;
+  height: 22px;
   border: 1px solid var(--text-color);
-  border-radius: 10px;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 2px;
+  border-radius: 11px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .theme-switch::before {
-  content: "";
-  width: 14px;
-  height: 14px;
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
   background-color: var(--text-color);
   border-radius: 50%;
-  transition: transform 0.3s ease;
-  transform: translateX(0);
+  transition: transform 0.3s;
 }
 
 body.dark-mode .theme-switch::before {
-  transform: translateX(20px);
+  transform: translateX(18px);
 }
 
+/* Conteúdo */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 2rem;
 }
 
+/* Perfil */
 .profile-pic {
   display: block;
   width: 120px;
@@ -135,11 +135,13 @@ body.dark-mode .theme-switch::before {
   margin: 2rem auto 1rem;
 }
 
+/* Bio */
 .bio {
   text-align: justify;
   margin-bottom: 2rem;
 }
 
+/* Links */
 .links {
   text-align: center;
   margin-bottom: 2rem;
@@ -150,6 +152,7 @@ body.dark-mode .theme-switch::before {
   transition: color 0.3s ease;
 }
 
+/* Galeria */
 h2 {
   text-align: center;
   margin-top: 3rem;
@@ -166,12 +169,83 @@ h2 {
 .gallery img {
   width: 100%;
   height: auto;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 5%;
+}
+
+.modal-caption {
+  color: #ccc;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.modal-close,
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.modal-close {
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+}
+
+.modal-prev {
+  left: 10px;
+}
+
+.modal-next {
+  right: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .theme-switch {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Rodapé */
 footer {
   text-align: center;
   padding: 2rem;
@@ -188,30 +262,4 @@ footer {
 
 .footer-link:hover {
   color: var(--hover-color);
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .subtitle {
-    font-size: 0.9rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .theme-switch {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1001;
-    width: 36px;
-    height: 18px;
-    padding: 1px;
-  }
-
-  .theme-switch::before {
-    width: 12px;
-    height: 12px;
-  }
 }
