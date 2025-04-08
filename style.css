@@ -169,8 +169,8 @@ h2 {
 
 .gallery img {
   width: 220px;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   cursor: pointer;
   border: none;
   border-radius: 4px;
