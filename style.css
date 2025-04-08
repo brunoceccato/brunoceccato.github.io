@@ -203,11 +203,12 @@ h2 {
   text-align: center;
   font-size: 0.75rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7); /* tom suave em dark-mode */
+  color: rgba(255, 255, 255, 0.7); /* tom suave no dark mode */
   padding: 0 1rem;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
 }
 
 /* Botões do modal */
