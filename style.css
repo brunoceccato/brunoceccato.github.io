@@ -201,8 +201,9 @@ h2 {
 .modal-caption {
   margin-top: 1rem;
   text-align: center;
-  font-size: 0.7rem;
-  color: var(--text-color);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7); /* tom suave em dark-mode */
   padding: 0 1rem;
   border: none;
   outline: none;
