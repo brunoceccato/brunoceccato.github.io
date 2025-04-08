@@ -27,19 +27,20 @@ window.addEventListener('DOMContentLoaded', () => {
 // ------------------
 const modal = document.getElementById('image-modal');
 const modalImg = document.getElementById('modal-img');
-const captionText = document.getElementById('modal-caption');
-const closeBtn = document.getElementById('modal-close');
-const nextBtn = document.getElementById('modal-next');
-const prevBtn = document.getElementById('modal-prev');
+const modalCaption = document.getElementById('modal-caption');
+const modalClose = document.getElementById('modal-close');
+const modalNext = document.getElementById('modal-next');
+const modalPrev = document.getElementById('modal-prev');
 const images = document.querySelectorAll('.gallery img');
 
 let currentIndex = 0;
 
-// Abrir modal
 images.forEach((img, index) => {
   img.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.dataset.full;
+    modalCaption.textContent = img.alt;
     currentIndex = index;
-    openModal();
   });
 });
 
