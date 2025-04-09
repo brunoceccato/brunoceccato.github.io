@@ -221,7 +221,7 @@ h2 {
 .modal-prev,
 .modal-next {
   position: absolute;
-  color: #cccccc;
+  color: currentColor;
   background-color: transparent !important;
   border: none !important;
   padding: 0;
@@ -269,7 +269,7 @@ h2 {
   display: block;
   width: 100%;
   height: 100%;
-  stroke: #cccccc;
+  stroke: currentColor;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
