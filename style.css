@@ -221,7 +221,7 @@ h2 {
 .modal-prev,
 .modal-next {
   position: absolute;
-  color: currentColor;
+  color: #cccccc;
   background-color: transparent !important;
   border: none !important;
   padding: 0;
