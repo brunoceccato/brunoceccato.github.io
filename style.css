@@ -235,7 +235,7 @@ h2 {
   cursor: pointer;
   user-select: none;
   opacity: 0.7;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease; /* só mantemos a transição da opacidade */
 }
 
 .modal-close {
@@ -262,7 +262,6 @@ h2 {
 .modal-prev:hover,
 .modal-next:hover {
   opacity: 1;
-  transform: scale(1.1);
 }
 
 /* Ícones SVG dentro dos botões do modal */
