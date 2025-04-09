@@ -196,20 +196,24 @@ h2 {
   flex-direction: column;
 }
 
+/* Imagem ampliada */
 .modal-content {
   max-width: 90%;
   max-height: 80%;
   border-radius: 4px;
 }
 
+/* Legenda da imagem */
 .modal-caption {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.8rem;
-  color: #ccc;
+  color: var(--text-color);
   padding: 0 1rem;
-  background: transparent;
-  border: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 /* Controles do Modal */
@@ -218,19 +222,28 @@ h2 {
 .modal-next {
   position: absolute;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.6rem;
   cursor: pointer;
   user-select: none;
-  padding: 0.75rem;
   transition: opacity 0.2s ease;
-  font-weight: 300;
+  font-weight: 200;
   opacity: 0.8;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-close {
   top: 1rem;
   right: 1rem;
-  font-size: 3rem;
+  width: 40px;
+  height: 40px;
+  font-size: 2.5rem;
 }
 
 .modal-prev,
@@ -250,7 +263,32 @@ h2 {
 .modal-close:hover,
 .modal-prev:hover,
 .modal-next:hover {
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+/* Ícones SVG dentro dos botões do modal */
+.modal button svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modal-close:hover svg,
+.modal-prev:hover svg,
+.modal-next:hover svg {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+/* Adaptação de cor no modo claro/escuro */
+body.dark-mode .modal button svg {
+  stroke: #f1f1f1;
+}
+
+body:not(.dark-mode) .modal button svg {
+  stroke: #000;
 }
 
 /* Footer */
@@ -269,7 +307,7 @@ footer {
 }
 
 .footer-link:hover {
-  text-decoration: underline;
+  color: var(--hover-color);
 }
 
 /* Responsivo */
@@ -284,9 +322,5 @@ footer {
     width: calc(50% - 0.5rem);
     aspect-ratio: 1 / 1;
     object-fit: cover;
-  }
-
-  .modal-caption {
-    font-size: 0.75rem;
   }
 }
