@@ -27,12 +27,17 @@ const prevBtn = document.getElementById('modal-prev');
 const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
 let currentIndex = 0;
 
-function openModal(index) {
-  currentIndex = index;
-  const img = galleryImages[currentIndex];
+function updateModalContent(index) {
+  const img = galleryImages[index];
   modalImg.src = img.dataset.full;
   modalCaption.textContent = img.alt;
+}
+
+function openModal(index) {
+  currentIndex = index;
+  updateModalContent(currentIndex);
   modal.style.display = 'flex';
+  closeModal.focus();
 }
 
 function closeModalFunc() {
@@ -41,12 +46,12 @@ function closeModalFunc() {
 
 function showNext() {
   currentIndex = (currentIndex + 1) % galleryImages.length;
-  openModal(currentIndex);
+  updateModalContent(currentIndex);
 }
 
 function showPrev() {
   currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  openModal(currentIndex);
+  updateModalContent(currentIndex);
 }
 
 galleryImages.forEach((img, index) => {
@@ -57,6 +62,7 @@ closeModal.addEventListener('click', closeModalFunc);
 nextBtn.addEventListener('click', showNext);
 prevBtn.addEventListener('click', showPrev);
 
+// Fechar modal com tecla Esc ou setas
 document.addEventListener('keydown', (e) => {
   if (modal.style.display === 'flex') {
     if (e.key === 'Escape') {
@@ -66,5 +72,20 @@ document.addEventListener('keydown', (e) => {
     } else if (e.key === 'ArrowLeft') {
       showPrev();
     }
+  }
+});
+
+// Acessibilidade: fechar com Enter ou Espaço no botão fechar
+closeModal.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    closeModalFunc();
+  }
+});
+
+// Fechar ao clicar fora da imagem
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModalFunc();
   }
 });
