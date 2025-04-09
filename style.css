@@ -190,7 +190,7 @@ h2 {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.7);
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -286,7 +286,7 @@ body.dark-mode .modal button svg {
 }
 
 body:not(.dark-mode) .modal button svg {
-  stroke: #000;
+  stroke: #666666;
 }
 
 /* Footer */
