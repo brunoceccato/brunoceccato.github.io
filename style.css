@@ -214,12 +214,9 @@ h2 {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--text-color);
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
   padding: 0 1rem;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: transparent;
 }
 
 /* Controles do Modal */
