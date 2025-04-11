@@ -29,8 +29,15 @@ let currentIndex = 0;
 
 function updateModalContent(index) {
   const img = galleryImages[index];
-  modalImg.src = img.dataset.full;
-  modalCaption.textContent = img.alt;
+  const fullSrc = img.dataset.full;
+
+  if (!fullSrc) {
+    console.warn(`A imagem no índice ${index} está sem o atributo "data-full".`);
+    return;
+  }
+
+  modalImg.src = fullSrc;
+  modalCaption.textContent = img.alt || '';
 }
 
 function openModal(index) {
