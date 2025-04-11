@@ -170,7 +170,7 @@ h1 {
 /* Título da galeria */
 h2 {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-size: 1.5rem;
   font-weight: 800;
 }
@@ -181,7 +181,7 @@ h2 {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .gallery img {
