@@ -96,3 +96,23 @@ modal.addEventListener('click', (e) => {
     closeModalFunc();
   }
 });
+
+// Suporte a gestos no mobile
+let startX = 0;
+let endX = 0;
+
+modal.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeDistance = endX - startX;
+  if (Math.abs(swipeDistance) > 50) {
+    swipeDistance < 0 ? showNext() : showPrev();
+  }
+}
