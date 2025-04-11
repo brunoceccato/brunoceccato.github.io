@@ -337,4 +337,14 @@ footer {
     aspect-ratio: 1 / 1;
     object-fit: cover;
   }
+
+.bio {
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .bio p {
+    text-indent: 0;
+    line-height: 1.5;
+  }
 }
