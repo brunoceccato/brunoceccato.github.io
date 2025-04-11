@@ -24,6 +24,9 @@ Site pessoal do artista multidisciplinar Bruno Ceccato.
 
 ## 📜 Licença
 
-Este site está licenciado sob a [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+Todo o conteúdo deste site (textos, imagens e código) está licenciado sob:
 
-Você pode compartilhar e adaptar o conteúdo para fins **não comerciais**, desde que atribua o crédito adequado.
+**[Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.pt)**
+
+Você pode:
+- Compartilhar e adaptar para fins **não comerciais**, desde que forneça **crédito apropriado** a Bruno Ceccato.
