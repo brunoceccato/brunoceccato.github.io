@@ -200,7 +200,7 @@ h2 {
 .series-grid {
   display: flex;
   flex-wrap: wrap;          /* permite quebrar linha */
-  justify-content: space-around;   /* centraliza horizontalmente */
+  justify-content: space-between;   /* centraliza horizontalmente */
   gap: 1rem;                 /* espaço entre imagens */
   margin: 0 auto;
 }
