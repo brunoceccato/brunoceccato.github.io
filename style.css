@@ -171,51 +171,59 @@ h2 {
   font-weight: 900;
 }
 
-/* Galeria principal */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
+/* --- NOVO LAYOUT MASONRY (ALVENARIA) --- */
+.galeria-container {
+  column-count: 3;           /* 3 colunas em telas grandes */
+  column-gap: 1.5rem;        /* Espaço horizontal entre colunas */
+  margin-top: 2rem;
+  width: 100%;
 }
 
-/* Série de obras */
-.series-block {
-  margin-bottom: 3rem;
-  text-align: center;
+.galeria-item {
+  display: inline-block;     /* Impede que a obra quebre entre colunas */
+  width: 100%;
+  margin-bottom: 2rem;       /* Espaço vertical entre as obras */
+  background: transparent;   /* Mantém a cor de fundo do tema (Light/Dark) */
+  text-align: left;          /* Alinha a legenda à esquerda da foto */
 }
 
-/* Título da série */
-.series-title {
-  font-weight: 400;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.7;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
-
-/* Grid de imagens de cada série */
-.series-grid {
-  display: flex;
-  flex-wrap: wrap;          /* permite quebrar linha */
-  justify-content: center;   /* centraliza horizontalmente */
-  gap: 1rem;                 /* espaço entre imagens */
-  margin: 0 auto;
-}
-
-.series-grid img {
-  width: 220px;
-  height: auto;
-  object-fit: contain;
-  cursor: pointer;
+.galeria-item img {
+  width: 100%;
+  height: auto;              /* Crucial: mantém a proporção original sem cortes */
+  display: block;
   border-radius: 4px;
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.series-grid img:hover {
-  transform: scale(1.02);
+.galeria-item img:hover {
+  transform: scale(1.015);
+  opacity: 0.95;
+}
+
+/* Legendas discretas e elegantes logo abaixo de cada imagem */
+.obra-especificacoes {
+  padding: 0.6rem 0 0 0;
+  font-family: 'Montserrat', sans-serif; /* Mantém sua fonte padrão */
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.obra-titulo {
+  display: block;
+  font-weight: 700;          /* Destaque sutil para o título */
+}
+
+.obra-detalhes {
+  display: block;
+  opacity: 0.7;              /* Fica suave tanto no modo claro quanto no escuro */
+}
+
+.obra-contexto {
+  display: block;
+  font-style: italic;
+  opacity: 0.5;
+  margin-top: 0.2rem;        /* Caso queira colocar a exposição retroativamente */
 }
 
 /* Modal */
